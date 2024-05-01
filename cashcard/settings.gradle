@@ -1,0 +1,3 @@
+rootProject.name = 'cashcard-spring-cloud-stream'
+
+include 'cashcard-transaction-source'

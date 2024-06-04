@@ -1,23 +1,24 @@
 package com.example.cashcard.controller;
 
-import com.example.cashcard.domain.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.cashcard.domain.Transaction;
+import com.example.cashcard.ondemand.CashCardTransactionOnDemand;
+
 @RestController
 public class CashCardController {
 
-    private final StreamBridge streamBridge;
+    private final CashCardTransactionOnDemand cashCardTransactionOnDemand;
 
-    public CashCardController(@Autowired StreamBridge streamBridge) {
-        this.streamBridge = streamBridge;
+    public CashCardController(@Autowired CashCardTransactionOnDemand cashCardTransactionOnDemand) {
+        this.cashCardTransactionOnDemand = cashCardTransactionOnDemand;
     }
 
     @PostMapping(path = "/publish/txn")
     public void publishTxn(@RequestBody Transaction transaction) {
-        this.streamBridge.send("approvalRequest-out-0", transaction);
+        this.cashCardTransactionOnDemand.publishOnDemand(transaction);
     }
 }

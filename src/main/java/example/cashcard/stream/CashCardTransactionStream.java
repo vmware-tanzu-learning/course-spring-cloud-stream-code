@@ -1,13 +1,15 @@
 package example.cashcard.stream;
 
-import example.cashcard.service.DataSourceService;
-import example.cashcard.domain.Transaction;
 import java.util.function.Supplier;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import example.cashcard.domain.Transaction;
+import example.cashcard.service.DataSourceService;
+
 @Configuration
-public class CashCardStream {
+public class CashCardTransactionStream {
 
     @Bean
     public Supplier<Transaction> approvalRequest(DataSourceService dataSource) {
@@ -21,4 +23,3 @@ public class CashCardStream {
         return new DataSourceService();
     }
 }
-

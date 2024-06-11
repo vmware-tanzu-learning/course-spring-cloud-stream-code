@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 @SpringBootApplication
-public class CashcardApplication {
+public class CashcardEnricherApplication {
 
 	public static void main(String[] args) throws JsonProcessingException {
-		SpringApplication.run(CashcardApplication.class, args);
+		SpringApplication.run(CashcardEnricherApplication.class, args);
 	}
 
 }

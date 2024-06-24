@@ -1,10 +1,9 @@
 package example.cashcard.stream;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.BDDMockito.given;
-
-import java.io.IOException;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
+import example.cashcard.domain.CashCard;
+import example.cashcard.domain.Transaction;
+import example.cashcard.service.DataSourceService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,11 +13,10 @@ import org.springframework.cloud.stream.binder.test.TestChannelBinderConfigurati
 import org.springframework.context.annotation.Import;
 import org.springframework.messaging.Message;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.IOException;
 
-import example.cashcard.domain.CashCard;
-import example.cashcard.domain.Transaction;
-import example.cashcard.service.DataSourceService;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.BDDMockito.given;
 
 @SpringBootTest
 @Import(TestChannelBinderConfiguration.class)

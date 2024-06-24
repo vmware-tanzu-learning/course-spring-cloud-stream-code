@@ -1,11 +1,10 @@
 package example.cashcard.controller;
 
+import example.cashcard.domain.Transaction;
+import example.cashcard.ondemand.CashCardTransactionOnDemand;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import example.cashcard.domain.Transaction;
-import example.cashcard.ondemand.CashCardTransactionOnDemand;
 
 @RestController
 public class CashCardController {

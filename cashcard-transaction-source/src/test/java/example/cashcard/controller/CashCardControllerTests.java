@@ -1,9 +1,9 @@
 package example.cashcard.controller;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-import java.io.IOException;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
+import example.cashcard.domain.CashCard;
+import example.cashcard.domain.Transaction;
+import example.cashcard.ondemand.CashCardTransactionOnDemand;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,11 +16,9 @@ import org.springframework.cloud.stream.binder.test.TestChannelBinderConfigurati
 import org.springframework.context.annotation.Import;
 import org.springframework.messaging.Message;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.IOException;
 
-import example.cashcard.domain.CashCard;
-import example.cashcard.domain.Transaction;
-import example.cashcard.ondemand.CashCardTransactionOnDemand;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @Import({ TestChannelBinderConfiguration.class, CashCardTransactionOnDemand.class })

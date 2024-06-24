@@ -1,9 +1,8 @@
 package example.cashcard.ondemand;
 
+import example.cashcard.domain.Transaction;
 import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.context.annotation.Configuration;
-
-import example.cashcard.domain.Transaction;
 
 @Configuration
 public class CashCardTransactionOnDemand {

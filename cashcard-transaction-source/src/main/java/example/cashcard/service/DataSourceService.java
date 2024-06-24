@@ -2,6 +2,7 @@ package example.cashcard.service;
 
 import example.cashcard.domain.CashCard;
 import example.cashcard.domain.Transaction;
+
 import java.util.Random;
 
 public class DataSourceService {

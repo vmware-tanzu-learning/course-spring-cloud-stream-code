@@ -24,6 +24,7 @@ dependencies {
 	implementation 'org.springframework.cloud:spring-cloud-stream-binder-kafka'
 	implementation 'org.springframework.kafka:spring-kafka'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation project(':cashcard-transaction-domain')
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.cloud:spring-cloud-stream-test-binder'
 	testImplementation 'org.springframework.kafka:spring-kafka-test'

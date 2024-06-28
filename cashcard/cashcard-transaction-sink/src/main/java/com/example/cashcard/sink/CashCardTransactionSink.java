@@ -41,7 +41,7 @@ public class CashCardTransactionSink {
             Path path = Paths.get(CSV_FILE_PATH);
 
             try {
-                Files.writeString(path, enrichedTxnTextual.toString() + "\n", StandardOpenOption.APPEND);
+                Files.writeString(path, enrichedTxnTextual.toString() + "\n", StandardOpenOption.CREATE, StandardOpenOption.APPEND);
             }
             catch (IOException e) {
                 throw new RuntimeException(e);

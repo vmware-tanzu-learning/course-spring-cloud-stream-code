@@ -50,10 +50,15 @@ subprojects {
 	}
 }
 
-project('cashcard-transaction-source') {
-	description = 'c t s'
+project('cashcard-transaction-e2e-test') {
 
-
+	dependencies {
+		implementation project(':cashcard-transaction-source')
+		implementation project(':cashcard-transaction-enricher')
+		implementation project(':cashcard-transaction-sink')
+		testImplementation 'org.testcontainers:kafka'
+		testImplementation 'org.springframework.boot:spring-boot-testcontainers'
+	}
 }
 
 

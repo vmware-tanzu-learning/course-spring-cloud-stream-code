@@ -32,7 +32,7 @@ public class CashCardControllerTests {
 
   @Test
   void cashCardStreamBridge(@Autowired OutputDestination outputDestination) throws IOException {
-    Transaction postedTransaction = new Transaction(123L, new CashCard(1L, "Foo Bar", 1.00));
+    Transaction postedTransaction = new Transaction(123L, new CashCard(1L, "Kumar Patel", 1.00));
     this.restTemplate.postForEntity("http://localhost:" + port + "/publish/txn", postedTransaction, Transaction.class);
 
     Message<byte[]> result = outputDestination.receive(5000, "approvalRequest-out-0");

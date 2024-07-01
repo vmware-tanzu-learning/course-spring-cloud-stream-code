@@ -46,7 +46,6 @@ public class CashCardTransactionSink {
       catch (IOException e) {
         throw new RuntimeException(e);
       }
-
     };
   }
 

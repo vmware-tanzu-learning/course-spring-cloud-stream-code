@@ -33,7 +33,7 @@ public class CashCardTransactionSinkTests {
 
   @Test
   void sinkToConsole(@Autowired InputDestination inputDestination, CapturedOutput output) throws IOException {
-    Transaction transaction = new Transaction(1L, new CashCard(123L, "John Doe", 1.00));
+    Transaction transaction = new Transaction(1L, new CashCard(123L, "Kumar Patel", 1.00));
     EnrichedTransaction enrichedTransaction = new EnrichedTransaction(transaction.id(), transaction.cashCard(), ApprovalStatus.APPROVED,
       new CardHolderData(UUID.randomUUID(), transaction.cashCard().owner(), "123 Main Street"));
 
@@ -47,7 +47,7 @@ public class CashCardTransactionSinkTests {
 
   @Test
   void sinkToFile(@Autowired InputDestination inputDestination) throws IOException {
-    Transaction transaction = new Transaction(1L, new CashCard(123L, "John Doe", 100.25));
+    Transaction transaction = new Transaction(1L, new CashCard(123L, "Kumar Patel", 100.25));
     UUID uuid = UUID.fromString("65d0b699-3695-44c6-ba23-4a241717dab7");
     EnrichedTransaction enrichedTransaction = new EnrichedTransaction(transaction.id(), transaction.cashCard(), ApprovalStatus.APPROVED,
       new CardHolderData(uuid, transaction.cashCard().owner(), "123 Main Street"));
@@ -62,7 +62,7 @@ public class CashCardTransactionSinkTests {
     List<String> lines = Files.readAllLines(path);
 
     assertThat(lines.get(0)).isEqualTo
-      ("1,123,100.25,John Doe,65d0b699-3695-44c6-ba23-4a241717dab7,123 Main Street,APPROVED");
+      ("1,123,100.25,Kumar Patel,65d0b699-3695-44c6-ba23-4a241717dab7,123 Main Street,APPROVED");
   }
 
 
